@@ -140,12 +140,26 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn('class="paper-figure paired-figures"', self.html)
         self.assertIn("all references are provided as textual descriptions", self.text)
 
-    def test_reference_buttons_match_the_large_dark_bar(self):
+    def test_reference_buttons_match_the_compact_dark_bar(self):
         css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
-        self.assertIn("min-height: 72px", css)
-        self.assertIn("min-width: 200px", css)
-        self.assertIn("font-size: 24px", css)
+        self.assertIn("min-height: 44px", css)
+        self.assertIn("font-size: 16px", css)
+        self.assertIn("border-radius: 12px", css)
         self.assertIn("opacity: 1", css)
+        self.assertIn('class="resource-icon resource-icon-github"', self.html)
+        self.assertIn('class="resource-icon resource-icon-arxiv"', self.html)
+        self.assertIn('class="resource-icon resource-icon-dataset"', self.html)
+
+    def test_desktop_title_is_constrained_to_two_logical_lines(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn("font-size: 36px", css)
+        self.assertIn("white-space: nowrap", css)
+        self.assertIn(".title-line", css)
+
+    def test_results_figures_share_the_same_width(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn(".results-figure,\n.text-generation-figure", css)
+        self.assertIn("width: 96%", css)
 
     def test_benchmark_emphasis_uses_dark_text(self):
         css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")

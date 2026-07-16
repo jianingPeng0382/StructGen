@@ -130,7 +130,7 @@ html.is-loading .page-loader {
   max-width: 1200px;
   margin: 0 auto 12px !important;
   color: var(--ink-strong) !important;
-  font-size: 42px !important;
+  font-size: 36px !important;
   font-weight: 800 !important;
   letter-spacing: -0.035em;
   line-height: 1.1 !important;
@@ -138,6 +138,7 @@ html.is-loading .page-loader {
 
 .title-line {
   display: block;
+  white-space: nowrap;
 }
 
 .author-list {
@@ -198,34 +199,44 @@ html.is-loading .page-loader {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
+  gap: 12px;
 }
 
 .project-button {
   height: auto !important;
-  min-width: 200px;
-  min-height: 72px;
+  min-height: 44px;
   justify-content: center;
-  padding: 14px 24px !important;
+  gap: 8px;
+  padding: 7px 20px !important;
   border: 0 !important;
-  border-radius: 22px !important;
+  border-radius: 12px !important;
   background: var(--ink) !important;
   color: #fff !important;
   box-shadow: 0 5px 14px rgba(15, 23, 42, 0.2);
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-button svg,
 .copy-button svg {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+}
+
+.resource-icon-github {
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+.resource-icon-dataset {
+  font-size: 21px;
+  line-height: 1;
 }
 
 .project-button:hover {
@@ -327,12 +338,13 @@ html.is-loading .page-loader {
   object-fit: contain;
 }
 
+.results-figure,
 .text-generation-figure {
-  margin-top: 34px;
+  width: 96%;
 }
 
-.results-figure {
-  width: 96%;
+.text-generation-figure {
+  margin-top: 34px;
 }
 
 .teaser-copy,
@@ -512,13 +524,29 @@ pre {
   }
 }
 
+@media (max-width: 1100px) and (min-width: 901px) {
+  .project-title {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 768px) {
+  .project-title {
+    font-size: 27px !important;
+  }
+}
+
 @media (max-width: 767px) {
   .project-hero .hero-body {
     padding: 32px 16px;
   }
 
   .project-title {
-    font-size: 40px !important;
+    font-size: 34px !important;
+  }
+
+  .title-line {
+    white-space: normal;
   }
 
   .author-list {
@@ -544,7 +572,8 @@ pre {
 
   .compact-figure,
   .teaser-figure,
-  .results-figure {
+  .results-figure,
+  .text-generation-figure {
     width: 100%;
   }
 
@@ -581,7 +610,7 @@ pre {
 
   .project-title {
     margin-bottom: 22px !important;
-    font-size: 32px !important;
+    font-size: 30px !important;
     line-height: 1.2 !important;
   }
 
@@ -608,7 +637,7 @@ pre {
 
   .project-button {
     min-width: 0;
-    min-height: 64px;
+    min-height: 44px;
     width: 100%;
     justify-content: center;
   }
