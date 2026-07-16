@@ -89,6 +89,7 @@ class StructGenProjectPageTests(unittest.TestCase):
             "static/css/site.css",
             "static/js/site.js",
             "static/images/favicon.png",
+            "static/images/favicon.jpg",
             "static/images/apple-touch-icon.png",
             "static/images/og-banner.png",
         ):
