@@ -63,7 +63,7 @@ class StructGenProjectPageTests(unittest.TestCase):
 
     def test_public_links_and_disabled_placeholders(self):
         hrefs = {link.get("href") for link in self.parser.links}
-        self.assertIn("https://github.com/jianingPeng0382/StructGen", hrefs)
+        self.assertIn("https://github.com/jianingPeng0382/StructGenCode", hrefs)
         self.assertIn(
             "https://huggingface.co/datasets/jianingPeng0382/StructGen", hrefs
         )
@@ -102,7 +102,7 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn("window.setTimeout(hideLoader, 3000)", js)
 
     def test_social_metadata_uses_the_final_absolute_pages_url(self):
-        pages_url = "https://jianingpeng0382.github.io/StructGen-Project-Page/"
+        pages_url = "https://jianingpeng0382.github.io/StructGen/"
         self.assertIn(f'<link rel="canonical" href="{pages_url}">', self.html)
         self.assertIn(f'<meta property="og:url" content="{pages_url}">', self.html)
         self.assertIn(
