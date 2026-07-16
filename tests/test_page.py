@@ -93,6 +93,23 @@ class StructGenProjectPageTests(unittest.TestCase):
         ):
             self.assertTrue((ROOT / asset).is_file(), asset)
 
+    def test_loader_has_a_javascript_failure_fallback(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        js = (ROOT / "static/js/site.js").read_text(encoding="utf-8")
+        self.assertIn(".page-loader", css)
+        self.assertIn("display: none", css)
+        self.assertIn("html.is-loading .page-loader", css)
+        self.assertIn("window.setTimeout(hideLoader, 3000)", js)
+
+    def test_social_metadata_uses_the_final_absolute_pages_url(self):
+        pages_url = "https://jianingpeng0382.github.io/StructGen-Project-Page/"
+        self.assertIn(f'<link rel="canonical" href="{pages_url}">', self.html)
+        self.assertIn(f'<meta property="og:url" content="{pages_url}">', self.html)
+        self.assertIn(
+            f'<meta property="og:image" content="{pages_url}static/images/og-banner.png">',
+            self.html,
+        )
+
     def test_attribution_and_license_are_explicit(self):
         self.assertIn("ProbeX", self.text)
         self.assertIn("Academic Project Page Template", self.text)

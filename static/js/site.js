@@ -1,14 +1,20 @@
 (() => {
   "use strict";
 
+  document.documentElement.classList.add("is-loading");
+
   const loader = document.querySelector(".page-loader");
   const copyButton = document.querySelector("#copy-bibtex");
   const bibtexCode = document.querySelector("#bibtex-code code");
   const backToTop = document.querySelector("#back-to-top");
 
-  window.addEventListener("load", () => {
-    window.setTimeout(() => loader?.classList.add("is-hidden"), 120);
-  });
+  const hideLoader = () => {
+    loader?.classList.add("is-hidden");
+    document.documentElement.classList.remove("is-loading");
+  };
+
+  window.addEventListener("load", () => window.setTimeout(hideLoader, 120));
+  window.setTimeout(hideLoader, 3000);
 
   copyButton?.addEventListener("click", async () => {
     const citation = bibtexCode?.textContent?.trim() ?? "";
