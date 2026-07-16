@@ -277,6 +277,10 @@ html.is-loading .page-loader {
   background: var(--muted);
 }
 
+.section-figure-white {
+  background: #fff;
+}
+
 .section-title {
   margin: 0 0 32px;
   padding-bottom: 16px;
@@ -322,7 +326,7 @@ html.is-loading .page-loader {
 .paired-figures {
   display: grid;
   align-items: center;
-  grid-template-columns: 0.82fr 1.18fr;
+  grid-template-columns: 1fr 2.37fr;
   gap: 30px;
 }
 
@@ -334,8 +338,8 @@ html.is-loading .page-loader {
 }
 
 .paired-figure-item img {
-  max-height: 440px;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
 }
 
 .results-figure,
@@ -587,7 +591,8 @@ pre {
   }
 
   .paired-figure-item img {
-    max-height: none;
+    width: 100%;
+    height: auto;
   }
 
   .abstract-copy {

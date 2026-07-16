@@ -161,6 +161,21 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn(".results-figure,\n.text-generation-figure", css)
         self.assertIn("width: 96%", css)
 
+    def test_white_figure_sections_and_pipeline_alignment(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn(
+            'class="section section-muted section-figure-white" id="structgen"',
+            self.html,
+        )
+        self.assertIn(
+            'class="section section-muted section-figure-white" id="results"',
+            self.html,
+        )
+        self.assertIn(".section-figure-white", css)
+        self.assertIn("grid-template-columns: 1fr 2.37fr", css)
+        self.assertIn('width="1600" height="648"', self.html)
+        self.assertIn("height: auto", css)
+
     def test_benchmark_emphasis_uses_dark_text(self):
         css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
         self.assertIn(".section-copy strong", css)
