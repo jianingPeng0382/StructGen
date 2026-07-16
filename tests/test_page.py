@@ -88,7 +88,8 @@ class StructGenProjectPageTests(unittest.TestCase):
         for asset in (
             "static/css/site.css",
             "static/js/site.js",
-            "static/images/favicon.svg",
+            "static/images/favicon.png",
+            "static/images/apple-touch-icon.png",
             "static/images/og-banner.png",
         ):
             self.assertTrue((ROOT / asset).is_file(), asset)
