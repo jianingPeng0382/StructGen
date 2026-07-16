@@ -1,0 +1,581 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #1e293b;
+  --ink-strong: #0f172a;
+  --secondary: #64748b;
+  --muted: #f8fafc;
+  --soft: #f1f5f9;
+  --border: #e2e8f0;
+  --primary: #2563eb;
+  --success: #10b981;
+  --shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #fff;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: #1d4ed8;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.page-container {
+  max-width: 960px !important;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.page-loader.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loader-mark {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  color: #fff;
+  border-radius: 16px;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  font-size: 28px;
+  font-weight: 800;
+  animation: pulse 0.9s ease-in-out infinite alternate;
+}
+
+.project-hero {
+  background: #fff;
+}
+
+.project-hero .hero-body {
+  padding: 64px 24px 48px;
+}
+
+.project-title {
+  max-width: 940px;
+  margin: 0 auto 30px !important;
+  color: var(--ink-strong) !important;
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em;
+  line-height: 1.1 !important;
+}
+
+.author-list {
+  display: flex;
+  max-width: 940px;
+  margin: 0 auto 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 22px;
+  row-gap: 5px;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.author-list sup,
+.affiliations sup,
+.contribution-note sup {
+  position: relative;
+  top: -0.2em;
+  font-size: 0.62em;
+  font-weight: 600;
+}
+
+.affiliations {
+  max-width: 900px;
+  margin: 0 auto 12px;
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.affiliations p {
+  margin: 2px 0;
+}
+
+.venue {
+  margin: 14px 0 2px;
+  color: var(--ink-strong);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.contribution-note {
+  margin: 0 auto 22px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.project-button {
+  height: auto !important;
+  min-height: 42px;
+  padding: 8px 18px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: var(--ink) !important;
+  color: #fff !important;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.2);
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-button svg,
+.copy-button svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.project-button:hover {
+  background: var(--primary) !important;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+  transform: translateY(-2px);
+}
+
+.project-button.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.project-button.is-disabled:hover {
+  background: var(--ink) !important;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.2);
+  transform: none;
+}
+
+.soon {
+  margin-left: 3px;
+  font-size: 10px;
+  font-weight: 500;
+  opacity: 0.78;
+}
+
+.section {
+  padding: 48px 24px;
+}
+
+.teaser-section {
+  padding: 24px 24px 64px;
+}
+
+.section-muted {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.section-title {
+  margin: 0 0 32px;
+  padding-bottom: 16px;
+  color: var(--ink-strong);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.section-title::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 15px auto 0;
+  border-radius: 999px;
+  background: var(--primary);
+  content: "";
+}
+
+.paper-figure {
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.paper-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.teaser-figure {
+  width: 95%;
+  margin-bottom: 24px;
+}
+
+.compact-figure {
+  width: 72%;
+  max-width: 680px;
+}
+
+.results-figure {
+  width: 96%;
+}
+
+.teaser-copy,
+.section-copy {
+  max-width: 840px;
+  margin: 0 auto;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.teaser-copy {
+  font-size: 17px;
+}
+
+.abstract-copy {
+  max-width: 764px;
+  margin: 0 auto;
+  color: var(--secondary);
+  font-size: 17.6px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.bibtex-container {
+  max-width: 880px !important;
+}
+
+.bibtex-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.bibtex-title {
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.bibtex-title::after {
+  display: none;
+}
+
+.copy-button {
+  gap: 7px;
+  padding: 10px 16px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.copy-button.is-copied {
+  background: var(--success) !important;
+}
+
+pre {
+  overflow-x: auto;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 14.4px;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.citation-note {
+  margin-top: 12px;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+.project-footer {
+  padding: 48px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--muted);
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.project-footer p + p {
+  margin-top: 8px;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 20;
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  visibility: hidden;
+  border: 0;
+  border-radius: 50%;
+  opacity: 0;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-top.is-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.hero,
+.section {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-hero .hero-body {
+    padding: 32px 16px;
+  }
+
+  .project-title {
+    font-size: 40px !important;
+  }
+
+  .author-list {
+    column-gap: 14px;
+    font-size: 16px;
+  }
+
+  .affiliations {
+    font-size: 13px;
+  }
+
+  .venue {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .teaser-section {
+    padding-top: 20px;
+  }
+
+  .compact-figure,
+  .teaser-figure,
+  .results-figure {
+    width: 100%;
+  }
+
+  .abstract-copy {
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.72;
+    text-align: left;
+  }
+
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 479px) {
+  .project-hero .hero-body {
+    padding: 24px 12px 30px;
+  }
+
+  .project-title {
+    margin-bottom: 22px !important;
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+
+  .author-list {
+    display: block;
+    line-height: 1.75;
+  }
+
+  .author-list span {
+    display: inline-block;
+    margin: 0 6px;
+  }
+
+  .affiliations {
+    line-height: 1.45;
+  }
+
+  .publication-links {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .project-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section,
+  .teaser-section {
+    padding: 36px 16px;
+  }
+
+  .teaser-section {
+    padding-top: 16px;
+  }
+
+  .section-title {
+    margin-bottom: 24px;
+    font-size: 28px;
+  }
+
+  .teaser-copy,
+  .section-copy {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .bibtex-heading {
+    align-items: flex-start;
+  }
+
+  pre {
+    padding: 18px;
+    font-size: 12.5px;
+  }
+}

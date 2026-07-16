@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="StructGen disambiguates multi-reference image generation through structured context modeling.">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling">
+    <meta property="og:description" content="A structured framework, real-image data pipeline, and 400-case benchmark for human-centric multi-reference image generation.">
+    <meta property="og:image" content="static/images/og-banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>StructGen | Project Page</title>
+    <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/site.css">
+    <script src="static/js/site.js" defer></script>
+  </head>
+  <body id="top">
+    <div class="page-loader" aria-hidden="true">
+      <span class="loader-mark">S</span>
+    </div>
+
+    <header class="hero project-hero">
+      <div class="hero-body">
+        <div class="container page-container has-text-centered">
+          <h1 class="title project-title">
+            StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling
+          </h1>
+
+          <div class="author-list" aria-label="Authors">
+            <span>Jianing Peng<sup>1,3,5*</sup></span>
+            <span>Mengyu Wang<sup>1,3*</sup></span>
+            <span>Henghui Ding<sup>2†</sup></span>
+            <span>Zixiang Li<sup>1,3</sup></span>
+            <span>Ting Liu<sup>5</sup></span>
+            <span>Xiaochao Qu<sup>5</sup></span>
+            <span>Luoqi Liu<sup>5</sup></span>
+            <span>Yao Zhao<sup>1,3</sup></span>
+            <span>Yunchao Wei<sup>1,3,4†</sup></span>
+          </div>
+
+          <div class="affiliations" aria-label="Affiliations">
+            <p><sup>1</sup>Institute of Information Science, Beijing Jiaotong University, Beijing, China</p>
+            <p><sup>2</sup>Institute of Big Data, Fudan University, Shanghai, China</p>
+            <p><sup>3</sup>Visual Intelligence + X International Joint Laboratory of the Ministry of Education, Beijing, China</p>
+            <p><sup>4</sup>Beijing Academy of Artificial Intelligence, Beijing, China</p>
+            <p><sup>5</sup>MT Lab, Meitu Inc, Beijing, China</p>
+          </div>
+
+          <p class="venue">ACM MM 2026</p>
+          <p class="contribution-note"><sup>*</sup>Both authors contributed equally to this research. <span aria-hidden="true">&nbsp;·&nbsp;</span> <sup>†</sup>Corresponding authors.</p>
+
+          <nav class="publication-links" aria-label="Project resources">
+            <span class="button project-button is-disabled" role="link" aria-disabled="true" tabindex="-1" title="Paper link coming soon">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 3v6h5M9 13h8M9 17h8"/></svg>
+              <span>Paper</span><span class="soon">Coming Soon</span>
+            </span>
+            <a class="button project-button" href="https://github.com/jianingPeng0382/StructGen" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M14 6l-4 12"/></svg>
+              <span>Code</span>
+            </a>
+            <span class="button project-button is-disabled" role="link" aria-disabled="true" tabindex="-1" title="arXiv link coming soon">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 12 5l7 14M8 14h8"/></svg>
+              <span>arXiv</span><span class="soon">Coming Soon</span>
+            </span>
+            <a class="button project-button" href="https://huggingface.co/datasets/jianingPeng0382/StructGen" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16v11H4zM8 8V5h8v3M8 12h8M8 16h5"/></svg>
+              <span>Dataset</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section teaser-section" id="teaser" aria-labelledby="teaser-title">
+        <div class="container page-container has-text-centered">
+          <h2 class="is-sr-only" id="teaser-title">StructGen teaser</h2>
+          <figure class="paper-figure teaser-figure">
+            <img src="static/images/teaser.webp" alt="Comparison of BAGEL-MICo, Echo-4o, and StructGen on a challenging multi-reference generation case." width="2400" height="951">
+          </figure>
+          <p class="teaser-copy">
+            StructGen replaces verbose, ambiguous free-form prompts with a compact identifier-based context. It explicitly binds people, objects, attributes, and scenes, enabling accurate attribute–subject association and stronger consistency with every reference.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="abstract" aria-labelledby="abstract-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="abstract-title">Abstract</h2>
+          <div class="abstract-copy">
+            <p>
+              Multi-reference image generation aims to synthesize images by integrating attributes from multiple reference images under textual instructions. As the number of references increases, the task necessitates complex semantic comprehension, such as correctly associating attributes with the intended subjects and planing out coherent spatial arrangement between subjects and their environments. Existing approaches, which rely solely on natural language instruction, often fail to capture these complex intentions precisely, leading to semantic misalignment and inconsistent generation. We identify two key factors behind these limitations: natural language instructions are often verbose and ambiguous, and high-quality multi-reference data is scarce. To address these issues, we propose StructGen, which employs a structured, dictionary-like format to encode multiple reference images, thereby enabling explicit and unambiguous specification of generation intentions. To support this design, we construct a structured dataset based on high-quality real images and develop a corresponding training framework, along with a dedicated benchmark for challenging multi-reference scenarios. Extensive experiments on both public benchmarks and our proposed benchmark demonstrate that StructGen consistently outperforms existing methods on both semantic alignment and detailed reference-generation consistency, especially under complex instructions with multiple references. The code is available at <a href="https://github.com/jianingPeng0382/StructGen">jianingPeng0382/StructGen</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="structured-context" aria-labelledby="context-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="context-title">Structured Context Modeling</h2>
+          <figure class="paper-figure compact-figure">
+            <img src="static/images/structured-context.webp" alt="Comparison between previous distillation-based data and StructGen data curated from real-world images." width="1400" height="1344" loading="lazy">
+          </figure>
+          <p class="section-copy">
+            StructGen assigns every reference a unique identifier and organizes the references as a dictionary. Identifier-based instructions then point directly to the intended people, belongings, and scenes, turning implicit cross-reference associations into explicit grounding. Alongside this representation, our real-image curation pipeline preserves flexible poses, rich backgrounds, and natural human–environment interactions that are often missing from distillation-based data.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="structgen" aria-labelledby="structgen-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="structgen-title">StructGen</h2>
+          <figure class="paper-figure">
+            <img src="static/images/structgen.webp" alt="StructGen framework with structured data curation and structured tuning pipelines." width="2400" height="976" loading="lazy">
+          </figure>
+          <p class="section-copy">
+            StructGen consists of Structured Data Curation and Structured Tuning. The curation pipeline transforms real-world images into synchronized entity references, identifier-grounded descriptions, and generation instructions. During tuning, the model learns this structured context format while preserving the pretrained model’s broader understanding and generation capabilities.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="benchmark" aria-labelledby="benchmark-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="benchmark-title">StructGen Bench</h2>
+          <figure class="paper-figure">
+            <img src="static/images/structgen-bench.webp" alt="Construction pipeline and eight-subset composition of the 400-case StructGen Bench." width="2400" height="559" loading="lazy">
+          </figure>
+          <p class="section-copy">
+            StructGen Bench contains <strong>400 cases</strong> across <strong>8 subsets</strong>, defined by three orthogonal factors: outfit-conditioned versus outfit-retaining generation, single versus multiple humans, and the presence or absence of a scene reference. Each case includes matched natural-language and identifier-based instructions, enabling fair comparison while evaluating prompt following, subject consistency, and facial ID consistency.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="results" aria-labelledby="results-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="results-title">Results</h2>
+          <figure class="paper-figure results-figure">
+            <img src="static/images/results.webp" alt="Qualitative comparison of Echo-4o and StructGen across the eight StructGen Bench subsets." width="2400" height="1423" loading="lazy">
+          </figure>
+          <p class="section-copy">
+            Across StructGen Bench, StructGen better preserves referenced objects, scenes, and facial identity than the Echo-4o baseline. It also produces more natural subject–environment interactions and more realistic visual details, including lighting and texture. The gains are most evident in complex multi-human settings, where explicit identifier grounding prevents attributes from being assigned to the wrong subject.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="bibtex" aria-labelledby="bibtex-title">
+        <div class="container page-container bibtex-container">
+          <div class="bibtex-heading">
+            <h2 class="section-title bibtex-title" id="bibtex-title">BibTeX</h2>
+            <button class="button copy-button" id="copy-bibtex" type="button" aria-label="Copy BibTeX citation">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 8h11v12H8zM5 16H3V4h11v2"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <pre id="bibtex-code"><code>@inproceedings{peng2026structgen,
+  title     = {StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling},
+  author    = {Peng, Jianing and Wang, Mengyu and Ding, Henghui and Li, Zixiang and Liu, Ting and Qu, Xiaochao and Liu, Luoqi and Zhao, Yao and Wei, Yunchao},
+  booktitle = {Proceedings of the ACM International Conference on Multimedia},
+  year      = {2026}
+}</code></pre>
+          <p class="citation-note">DOI, page numbers, and final publication metadata will be added after they are officially assigned.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer project-footer">
+      <div class="container page-container has-text-centered">
+        <p>
+          Page design inspired by <a href="https://horwitz.ai/probex" target="_blank" rel="noopener noreferrer">ProbeX</a> and built from the visual language of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>.
+        </p>
+        <p>This project page is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>. This license does not alter the licenses of the paper, code, or dataset.</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7"/></svg>
+    </button>
+  </body>
+</html>
