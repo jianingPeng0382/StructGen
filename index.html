@@ -27,8 +27,10 @@
       <div class="hero-body">
         <div class="container page-container has-text-centered">
           <h1 class="title project-title">
-            StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling
+            <span class="title-line">StructGen: Disambiguating Multi-Reference Image Generation</span>
+            <span class="title-line">via Structured Context Modeling</span>
           </h1>
+          <p class="venue">ACM MM 2026</p>
 
           <div class="author-list" aria-label="Authors">
             <span>Jianing Peng<sup>1,3,5*</sup></span>
@@ -43,14 +45,11 @@
           </div>
 
           <div class="affiliations" aria-label="Affiliations">
-            <p><sup>1</sup>Institute of Information Science, Beijing Jiaotong University, Beijing, China</p>
-            <p><sup>2</sup>Institute of Big Data, Fudan University, Shanghai, China</p>
-            <p><sup>3</sup>Visual Intelligence + X International Joint Laboratory of the Ministry of Education, Beijing, China</p>
-            <p><sup>4</sup>Beijing Academy of Artificial Intelligence, Beijing, China</p>
-            <p><sup>5</sup>MT Lab, Meitu Inc, Beijing, China</p>
+            <p><sup>1</sup>Institute of Information Science, Beijing Jiaotong University <span class="affiliation-divider">·</span> <sup>2</sup>Institute of Big Data, Fudan University</p>
+            <p><sup>3</sup>Visual Intelligence + X International Joint Laboratory of the Ministry of Education</p>
+            <p><sup>4</sup>Beijing Academy of Artificial Intelligence <span class="affiliation-divider">·</span> <sup>5</sup>MT Lab, Meitu Inc</p>
           </div>
 
-          <p class="venue">ACM MM 2026</p>
           <p class="contribution-note"><sup>*</sup>Both authors contributed equally to this research. <span aria-hidden="true">&nbsp;·&nbsp;</span> <sup>†</sup>Corresponding authors.</p>
 
           <nav class="publication-links" aria-label="Project resources">
@@ -93,7 +92,7 @@
           <h2 class="section-title has-text-centered" id="abstract-title">Abstract</h2>
           <div class="abstract-copy">
             <p>
-              Multi-reference image generation aims to synthesize images by integrating attributes from multiple reference images under textual instructions. As the number of references increases, the task necessitates complex semantic comprehension, such as correctly associating attributes with the intended subjects and planing out coherent spatial arrangement between subjects and their environments. Existing approaches, which rely solely on natural language instruction, often fail to capture these complex intentions precisely, leading to semantic misalignment and inconsistent generation. We identify two key factors behind these limitations: natural language instructions are often verbose and ambiguous, and high-quality multi-reference data is scarce. To address these issues, we propose StructGen, which employs a structured, dictionary-like format to encode multiple reference images, thereby enabling explicit and unambiguous specification of generation intentions. To support this design, we construct a structured dataset based on high-quality real images and develop a corresponding training framework, along with a dedicated benchmark for challenging multi-reference scenarios. Extensive experiments on both public benchmarks and our proposed benchmark demonstrate that StructGen consistently outperforms existing methods on both semantic alignment and detailed reference-generation consistency, especially under complex instructions with multiple references. The code is available at <a href="https://github.com/jianingPeng0382/StructGen">jianingPeng0382/StructGen</a>.
+              Multi-reference image generation aims to synthesize images by integrating attributes from multiple reference images under textual instructions. As the number of references increases, the task necessitates complex semantic comprehension, such as correctly associating attributes with the intended subjects and planing out coherent spatial arrangement between subjects and their environments. Existing approaches, which rely solely on natural language instruction, often fail to capture these complex intentions precisely, leading to semantic misalignment and inconsistent generation. We identify two key factors behind these limitations: natural language instructions are often verbose and ambiguous, and high-quality multi-reference data is scarce. To address these issues, we propose StructGen, which employs a structured, dictionary-like format to encode multiple reference images, thereby enabling explicit and unambiguous specification of generation intentions. To support this design, we construct a structured dataset based on high-quality real images and develop a corresponding training framework, along with a dedicated benchmark for challenging multi-reference scenarios. Extensive experiments on both public benchmarks and our proposed benchmark demonstrate that StructGen consistently outperforms existing methods on both semantic alignment and detailed reference-generation consistency, especially under complex instructions with multiple references.
             </p>
           </div>
         </div>
@@ -101,9 +100,9 @@
 
       <section class="section" id="structured-context" aria-labelledby="context-title">
         <div class="container page-container">
-          <h2 class="section-title has-text-centered" id="context-title">Structured Context Modeling</h2>
-          <figure class="paper-figure compact-figure">
-            <img src="static/images/structured-context.webp" alt="Comparison between previous distillation-based data and StructGen data curated from real-world images." width="1400" height="1344" loading="lazy">
+          <h2 class="section-title has-text-centered" id="context-title">Structured Context Modeling Framework</h2>
+          <figure class="paper-figure">
+            <img src="static/images/structgen.webp" alt="StructGen framework with structured data curation and structured tuning pipelines." width="2400" height="976" loading="lazy">
           </figure>
           <p class="section-copy">
             StructGen assigns every reference a unique identifier and organizes the references as a dictionary. Identifier-based instructions then point directly to the intended people, belongings, and scenes, turning implicit cross-reference associations into explicit grounding. Alongside this representation, our real-image curation pipeline preserves flexible poses, rich backgrounds, and natural human–environment interactions that are often missing from distillation-based data.
@@ -113,9 +112,14 @@
 
       <section class="section section-muted" id="structgen" aria-labelledby="structgen-title">
         <div class="container page-container">
-          <h2 class="section-title has-text-centered" id="structgen-title">StructGen</h2>
-          <figure class="paper-figure">
-            <img src="static/images/structgen.webp" alt="StructGen framework with structured data curation and structured tuning pipelines." width="2400" height="976" loading="lazy">
+          <h2 class="section-title has-text-centered" id="structgen-title">Structured Data Curation Pipeline</h2>
+          <figure class="paper-figure paired-figures">
+            <div class="paired-figure-item portrait-panel">
+              <img src="static/images/structured-context.webp" alt="Comparison between previous distillation-based data and StructGen data curated from real-world images." width="1400" height="1344" loading="lazy">
+            </div>
+            <div class="paired-figure-item statistics-panel">
+              <img src="static/images/dataset-comparison.webp" alt="Distribution of the number of reference images per sample in previous datasets and the StructGen dataset." width="1600" height="763" loading="lazy">
+            </div>
           </figure>
           <p class="section-copy">
             StructGen consists of Structured Data Curation and Structured Tuning. The curation pipeline transforms real-world images into synchronized entity references, identifier-grounded descriptions, and generation instructions. During tuning, the model learns this structured context format while preserving the pretrained model’s broader understanding and generation capabilities.
@@ -141,8 +145,11 @@
           <figure class="paper-figure results-figure">
             <img src="static/images/results.webp" alt="Qualitative comparison of Echo-4o and StructGen across the eight StructGen Bench subsets." width="2400" height="1423" loading="lazy">
           </figure>
+          <figure class="paper-figure text-generation-figure">
+            <img src="static/images/text-generation.webp" alt="StructGen generation results when all references are provided as textual descriptions." width="2400" height="534" loading="lazy">
+          </figure>
           <p class="section-copy">
-            Across StructGen Bench, StructGen better preserves referenced objects, scenes, and facial identity than the Echo-4o baseline. It also produces more natural subject–environment interactions and more realistic visual details, including lighting and texture. The gains are most evident in complex multi-human settings, where explicit identifier grounding prevents attributes from being assigned to the wrong subject.
+            Across StructGen Bench, StructGen better preserves referenced objects, scenes, and facial identity than the Echo-4o baseline. It also produces more natural subject–environment interactions and more realistic visual details, including lighting and texture. The gains are most evident in complex multi-human settings, where explicit identifier grounding prevents attributes from being assigned to the wrong subject. StructGen also performs generation when all references are provided as textual descriptions, demonstrating that structured context supports text-to-image synthesis with decoupled entity descriptions and global semantic specification.
           </p>
         </div>
       </section>

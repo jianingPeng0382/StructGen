@@ -122,20 +122,28 @@ html.is-loading .page-loader {
   padding: 64px 24px 48px;
 }
 
+.project-hero .page-container {
+  max-width: 1240px !important;
+}
+
 .project-title {
-  max-width: 940px;
-  margin: 0 auto 30px !important;
+  max-width: 1200px;
+  margin: 0 auto 12px !important;
   color: var(--ink-strong) !important;
-  font-size: 48px !important;
+  font-size: 42px !important;
   font-weight: 800 !important;
   letter-spacing: -0.035em;
   line-height: 1.1 !important;
 }
 
+.title-line {
+  display: block;
+}
+
 .author-list {
   display: flex;
   max-width: 940px;
-  margin: 0 auto 18px;
+  margin: 18px auto 14px;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 22px;
@@ -157,7 +165,7 @@ html.is-loading .page-loader {
 
 .affiliations {
   max-width: 900px;
-  margin: 0 auto 12px;
+  margin: 0 auto 14px;
   color: var(--secondary);
   font-size: 15px;
   line-height: 1.55;
@@ -167,8 +175,14 @@ html.is-loading .page-loader {
   margin: 2px 0;
 }
 
+.affiliation-divider {
+  display: inline-block;
+  margin: 0 7px;
+  color: #94a3b8;
+}
+
 .venue {
-  margin: 14px 0 2px;
+  margin: 0 0 10px;
   color: var(--ink-strong);
   font-size: 20px;
   font-weight: 700;
@@ -184,27 +198,29 @@ html.is-loading .page-loader {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 18px;
 }
 
 .project-button {
   height: auto !important;
-  min-height: 42px;
-  padding: 8px 18px !important;
+  min-width: 200px;
+  min-height: 72px;
+  justify-content: center;
+  padding: 14px 24px !important;
   border: 0 !important;
-  border-radius: 12px !important;
+  border-radius: 22px !important;
   background: var(--ink) !important;
   color: #fff !important;
   box-shadow: 0 5px 14px rgba(15, 23, 42, 0.2);
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 600;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-button svg,
 .copy-button svg {
-  width: 19px;
-  height: 19px;
+  width: 30px;
+  height: 30px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -220,7 +236,7 @@ html.is-loading .page-loader {
 
 .project-button.is-disabled {
   cursor: not-allowed;
-  opacity: 0.48;
+  opacity: 1;
 }
 
 .project-button.is-disabled:hover {
@@ -230,8 +246,8 @@ html.is-loading .page-loader {
 }
 
 .soon {
-  margin-left: 3px;
-  font-size: 10px;
+  margin-left: 2px;
+  font-size: 9px;
   font-weight: 500;
   opacity: 0.78;
 }
@@ -292,6 +308,29 @@ html.is-loading .page-loader {
   max-width: 680px;
 }
 
+.paired-figures {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 30px;
+}
+
+.paired-figure-item {
+  display: flex;
+  min-height: 360px;
+  align-items: center;
+  justify-content: center;
+}
+
+.paired-figure-item img {
+  max-height: 440px;
+  object-fit: contain;
+}
+
+.text-generation-figure {
+  margin-top: 34px;
+}
+
 .results-figure {
   width: 96%;
 }
@@ -304,6 +343,11 @@ html.is-loading .page-loader {
   font-size: 16px;
   line-height: 1.65;
   text-align: center;
+}
+
+.section-copy strong {
+  color: var(--ink-strong);
+  font-weight: 800;
 }
 
 .teaser-copy {
@@ -504,6 +548,19 @@ pre {
     width: 100%;
   }
 
+  .paired-figures {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .paired-figure-item {
+    min-height: 0;
+  }
+
+  .paired-figure-item img {
+    max-height: none;
+  }
+
   .abstract-copy {
     max-width: none;
     font-size: 16px;
@@ -550,6 +607,8 @@ pre {
   }
 
   .project-button {
+    min-width: 0;
+    min-height: 64px;
     width: 100%;
     justify-content: center;
   }

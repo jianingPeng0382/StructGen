@@ -18,6 +18,8 @@ FIGURES = {
     "method.pdf": ("structgen.webp", 2400),
     "benchmark_v1.pdf": ("structgen-bench.webp", 2400),
     "structgen_bench.pdf": ("results.webp", 2400),
+    "dataset_compare.pdf": ("dataset-comparison.webp", 1600),
+    "text_generation.pdf": ("text-generation.webp", 2400),
 }
 
 

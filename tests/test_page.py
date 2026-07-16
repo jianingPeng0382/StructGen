@@ -116,6 +116,42 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn("CC BY-SA 4.0", self.text)
         self.assertTrue((ROOT / "LICENSE").is_file())
 
+    def test_refreshed_abstract_omits_redundant_code_sentence(self):
+        self.assertNotIn("The code is available at", self.text)
+
+    def test_venue_precedes_authors_and_affiliations_are_compact(self):
+        venue_position = self.html.index('<p class="venue">ACM MM 2026</p>')
+        author_position = self.html.index('<div class="author-list"')
+        self.assertLess(venue_position, author_position)
+        affiliation_start = self.html.index('<div class="affiliations"')
+        affiliation_end = self.html.index("</div>", affiliation_start)
+        affiliation_html = self.html[affiliation_start:affiliation_end]
+        for location in ("Beijing, China", "Shanghai, China"):
+            self.assertNotIn(location, affiliation_html)
+
+    def test_refreshed_sections_use_the_approved_figures(self):
+        self.assertIn(
+            "Structured Context Modeling Framework",
+            self.text,
+        )
+        self.assertIn("Structured Data Curation Pipeline", self.text)
+        self.assertIn('src="static/images/dataset-comparison.webp"', self.html)
+        self.assertIn('src="static/images/text-generation.webp"', self.html)
+        self.assertIn('class="paper-figure paired-figures"', self.html)
+        self.assertIn("all references are provided as textual descriptions", self.text)
+
+    def test_reference_buttons_match_the_large_dark_bar(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn("min-height: 72px", css)
+        self.assertIn("min-width: 200px", css)
+        self.assertIn("font-size: 24px", css)
+        self.assertIn("opacity: 1", css)
+
+    def test_benchmark_emphasis_uses_dark_text(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn(".section-copy strong", css)
+        self.assertIn("color: var(--ink-strong)", css)
+
 
 if __name__ == "__main__":
     unittest.main()
