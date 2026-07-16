@@ -218,7 +218,6 @@ html.is-loading .page-loader {
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-button svg,
 .copy-button svg {
   width: 20px;
   height: 20px;
@@ -229,9 +228,15 @@ html.is-loading .page-loader {
   stroke-width: 1.8;
 }
 
-.resource-icon-github {
-  fill: currentColor !important;
-  stroke: none !important;
+.project-button .resource-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.project-button .resource-icon i {
+  display: block;
 }
 
 .resource-icon-dataset {
@@ -326,7 +331,7 @@ html.is-loading .page-loader {
 .paired-figures {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 2.37fr;
+  grid-template-columns: 1.2fr 1.9fr;
   gap: 30px;
 }
 

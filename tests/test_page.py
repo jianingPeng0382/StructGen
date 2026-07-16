@@ -146,9 +146,25 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn("font-size: 16px", css)
         self.assertIn("border-radius: 12px", css)
         self.assertIn("opacity: 1", css)
-        self.assertIn('class="resource-icon resource-icon-github"', self.html)
-        self.assertIn('class="resource-icon resource-icon-arxiv"', self.html)
+        self.assertIn('class="fas fa-file-pdf"', self.html)
+        self.assertIn('class="fab fa-github"', self.html)
+        self.assertIn('class="ai ai-arxiv"', self.html)
         self.assertIn('class="resource-icon resource-icon-dataset"', self.html)
+
+    def test_probe_x_icon_fonts_are_vendored_locally(self):
+        for stylesheet in (
+            "static/css/fontawesome.all.min.css",
+            "static/css/academicons.min.css",
+        ):
+            self.assertIn(f'<link rel="stylesheet" href="{stylesheet}">', self.html)
+            self.assertTrue((ROOT / stylesheet).is_file(), stylesheet)
+
+        for font in (
+            "static/webfonts/fa-solid-900.woff2",
+            "static/webfonts/fa-brands-400.woff2",
+            "static/fonts/academicons.woff",
+        ):
+            self.assertTrue((ROOT / font).is_file(), font)
 
     def test_desktop_title_is_constrained_to_two_logical_lines(self):
         css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
@@ -172,7 +188,7 @@ class StructGenProjectPageTests(unittest.TestCase):
             self.html,
         )
         self.assertIn(".section-figure-white", css)
-        self.assertIn("grid-template-columns: 1fr 2.37fr", css)
+        self.assertIn("grid-template-columns: 1.2fr 1.9fr", css)
         self.assertIn('width="1600" height="648"', self.html)
         self.assertIn("height: auto", css)
 
