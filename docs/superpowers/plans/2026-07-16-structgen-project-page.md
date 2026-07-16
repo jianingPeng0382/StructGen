@@ -21,19 +21,19 @@
 ### Task 1: Static page contract and source synchronization
 
 - [x] Write failing structure, content, asset, accessibility, and attribution tests.
-- [ ] Run tests and record the expected missing-page failure.
-- [ ] Synchronize exact paper metadata from Overleaf.
+- [x] Run tests and record the expected missing-page failure.
+- [x] Synchronize exact paper metadata from Overleaf.
 
 ### Task 2: Page implementation and image pipeline
 
-- [ ] Implement the hero, navigation buttons, content sections, results, BibTeX, and footer.
-- [ ] Convert the five paper figures into web-optimized high-resolution images.
-- [ ] Add OG art, favicon, responsive styles, load animation, copy feedback, and scroll-to-top behavior.
-- [ ] Run the tests until all pass.
+- [x] Implement the hero, navigation buttons, content sections, results, BibTeX, and footer.
+- [x] Convert the five paper figures into web-optimized high-resolution images.
+- [x] Add OG art, favicon, responsive styles, load animation, copy feedback, and scroll-to-top behavior.
+- [x] Run the tests until all pass.
 
 ### Task 3: Local browser verification
 
-- [ ] Serve the page over local HTTP and verify resources and public links.
-- [ ] Inspect desktop, tablet, and mobile layouts for overflow, readability, and section fidelity.
-- [ ] Verify keyboard semantics, copy behavior, console cleanliness, and back-to-top behavior.
+- [x] Serve the page over local HTTP and verify resources and public links.
+- [x] Inspect desktop, tablet, and mobile layouts for overflow, readability, and section fidelity.
+- [x] Verify keyboard semantics, copy behavior, console cleanliness, and back-to-top behavior.
 - [ ] Deliver the local preview without publishing it.
