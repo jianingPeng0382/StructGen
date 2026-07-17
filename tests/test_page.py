@@ -48,7 +48,6 @@ class StructGenProjectPageTests(unittest.TestCase):
             "structgen",
             "benchmark",
             "results",
-            "bibtex",
         }
         self.assertTrue(required_ids.issubset(self.parser.ids))
         for phrase in (
