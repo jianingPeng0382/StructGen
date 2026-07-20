@@ -72,7 +72,11 @@ class StructGenProjectPageTests(unittest.TestCase):
 
     def test_citation_section_uses_the_published_arxiv_record(self):
         self.assertIn('id="citation"', self.html)
-        self.assertIn("peng2026structgendisambiguatingmultireferenceimage", self.html)
+        self.assertIn('id="citation-title">BibTeX</h2>', self.html)
+        self.assertIn("@misc{peng2026structgen,", self.html)
+        self.assertNotIn("peng2026structgendisambiguatingmultireferenceimage", self.html)
+        citation = self.html.split('id="citation-code"', 1)[1].split("</pre>", 1)[0]
+        self.assertNotIn("url={", citation)
         self.assertIn("https://arxiv.org/abs/2607.15619", self.html)
 
     def test_citation_restores_the_copyable_historical_layout(self):
