@@ -374,19 +374,72 @@ html.is-loading .page-loader {
   text-align: justify;
 }
 
+.copy-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.citation-container {
+  max-width: 880px !important;
+}
+
+.citation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.citation-title {
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.citation-title::after {
+  display: none;
+}
+
+.copy-button {
+  gap: 7px;
+  padding: 10px 16px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.copy-button.is-copied {
+  background: var(--success) !important;
+}
+
 .citation-code {
-  max-width: 764px;
-  margin: 20px auto 0;
-  padding: 18px 20px;
   overflow-x: auto;
+  margin: 0;
+  padding: 24px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--muted);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.55;
+  background: var(--soft);
+  color: var(--secondary);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 14.4px;
+  line-height: 1.6;
   text-align: left;
-  white-space: pre-wrap;
+  white-space: pre;
 }
 
 .project-footer {
@@ -612,5 +665,14 @@ html.is-loading .page-loader {
   .section-copy {
     font-size: 15px;
     text-align: left;
+  }
+
+  .citation-heading {
+    align-items: flex-start;
+  }
+
+  .citation-code {
+    padding: 18px;
+    font-size: 12.5px;
   }
 }

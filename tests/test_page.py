@@ -75,6 +75,23 @@ class StructGenProjectPageTests(unittest.TestCase):
         self.assertIn("peng2026structgendisambiguatingmultireferenceimage", self.html)
         self.assertIn("https://arxiv.org/abs/2607.15619", self.html)
 
+    def test_citation_restores_the_copyable_historical_layout(self):
+        css = (ROOT / "static/css/site.css").read_text(encoding="utf-8")
+        self.assertIn('class="container page-container citation-container"', self.html)
+        self.assertIn('class="citation-heading"', self.html)
+        self.assertIn('id="copy-citation"', self.html)
+        self.assertIn('id="citation-code"', self.html)
+        self.assertIn(".copy-button", css)
+        self.assertIn("background: var(--primary) !important", css)
+        self.assertIn("color: var(--secondary)", css)
+
+    def test_citation_copy_button_uses_the_clipboard(self):
+        js = (ROOT / "static/js/site.js").read_text(encoding="utf-8")
+        self.assertIn('document.querySelector("#copy-citation")', js)
+        self.assertIn('document.querySelector("#citation-code code")', js)
+        self.assertIn("navigator.clipboard.writeText(citation)", js)
+        self.assertIn('label.textContent = "Copied!"', js)
+
     def test_images_are_accessible_and_local(self):
         self.assertGreaterEqual(len(self.parser.images), 5)
         for image in self.parser.images:

@@ -159,10 +159,15 @@
       </section>
 
       <section class="section" id="citation" aria-labelledby="citation-title">
-        <div class="container page-container">
-          <h2 class="section-title has-text-centered" id="citation-title">Citation</h2>
-          <p class="section-copy">If you find StructGen useful, please cite our <a href="https://arxiv.org/abs/2607.15619" target="_blank" rel="noopener noreferrer">arXiv paper</a>.</p>
-          <pre class="citation-code"><code>@misc{peng2026structgendisambiguatingmultireferenceimage,
+        <div class="container page-container citation-container">
+          <div class="citation-heading">
+            <h2 class="section-title citation-title" id="citation-title">Citation</h2>
+            <button class="button copy-button" id="copy-citation" type="button" aria-label="Copy citation">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 8h11v12H8zM5 16H3V4h11v2"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+          <pre class="citation-code" id="citation-code"><code>@misc{peng2026structgendisambiguatingmultireferenceimage,
       title={StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling},
       author={Jianing Peng and Mengyu Wang and Henghui Ding and Zixiang Li and Ting Liu and Xiaochao Qu and Luoqi Liu and Yao Zhao and Yunchao Wei},
       year={2026},
