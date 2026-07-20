@@ -60,16 +60,20 @@ class StructGenProjectPageTests(unittest.TestCase):
         ):
             self.assertIn(phrase, self.text)
 
-    def test_public_links_and_disabled_placeholders(self):
+    def test_public_resource_links_are_live(self):
         hrefs = {link.get("href") for link in self.parser.links}
         self.assertIn("https://github.com/jianingPeng0382/StructGenCode", hrefs)
+        self.assertIn("https://arxiv.org/abs/2607.15619", hrefs)
+        self.assertIn("https://arxiv.org/pdf/2607.15619", hrefs)
         self.assertIn(
             "https://huggingface.co/datasets/jianingPeng0382/StructGen", hrefs
         )
-        self.assertGreaterEqual(len(self.parser.coming_soon), 2)
-        for link in self.parser.coming_soon:
-            self.assertNotIn("href", link)
-            self.assertEqual(link.get("tabindex"), "-1")
+        self.assertEqual(self.parser.coming_soon, [])
+
+    def test_citation_section_uses_the_published_arxiv_record(self):
+        self.assertIn('id="citation"', self.html)
+        self.assertIn("peng2026structgendisambiguatingmultireferenceimage", self.html)
+        self.assertIn("https://arxiv.org/abs/2607.15619", self.html)
 
     def test_images_are_accessible_and_local(self):
         self.assertGreaterEqual(len(self.parser.images), 5)

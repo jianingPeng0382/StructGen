@@ -374,6 +374,21 @@ html.is-loading .page-loader {
   text-align: justify;
 }
 
+.citation-code {
+  max-width: 764px;
+  margin: 20px auto 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--muted);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
 .project-footer {
   padding: 48px 24px;
   border-top: 1px solid var(--border);

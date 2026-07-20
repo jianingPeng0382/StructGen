@@ -57,18 +57,18 @@
           <p class="contribution-note"><sup>*</sup>Both authors contributed equally to this research. <span aria-hidden="true">&nbsp;·&nbsp;</span> <sup>†</sup>Corresponding authors.</p>
 
           <nav class="publication-links" aria-label="Project resources">
-            <span class="button project-button is-disabled" role="link" aria-disabled="true" tabindex="-1" title="Paper link coming soon">
+            <a class="button project-button" href="https://arxiv.org/pdf/2607.15619" target="_blank" rel="noopener noreferrer">
               <span class="icon resource-icon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
-              <span>Paper</span><span class="soon is-sr-only">Coming Soon</span>
-            </span>
+              <span>Paper</span>
+            </a>
             <a class="button project-button" href="https://github.com/jianingPeng0382/StructGenCode" target="_blank" rel="noopener noreferrer">
               <span class="icon resource-icon" aria-hidden="true"><i class="fab fa-github"></i></span>
               <span>Code</span>
             </a>
-            <span class="button project-button is-disabled" role="link" aria-disabled="true" tabindex="-1" title="arXiv link coming soon">
+            <a class="button project-button" href="https://arxiv.org/abs/2607.15619" target="_blank" rel="noopener noreferrer">
               <span class="icon resource-icon" aria-hidden="true"><i class="ai ai-arxiv"></i></span>
-              <span>arXiv</span><span class="soon is-sr-only">Coming Soon</span>
-            </span>
+              <span>arXiv</span>
+            </a>
             <a class="button project-button" href="https://huggingface.co/datasets/jianingPeng0382/StructGen" target="_blank" rel="noopener noreferrer">
               <span class="resource-icon resource-icon-dataset" aria-hidden="true">🤗</span>
               <span>Dataset</span>
@@ -155,6 +155,22 @@
           <p class="section-copy">
             Across StructGen Bench, StructGen better preserves referenced objects, scenes, and facial identity than the Echo-4o baseline. It also produces more natural subject–environment interactions and more realistic visual details, including lighting and texture. The gains are most evident in complex multi-human settings, where explicit identifier grounding prevents attributes from being assigned to the wrong subject. StructGen also performs generation when all references are provided as textual descriptions, demonstrating that structured context supports text-to-image synthesis with decoupled entity descriptions and global semantic specification.
           </p>
+        </div>
+      </section>
+
+      <section class="section" id="citation" aria-labelledby="citation-title">
+        <div class="container page-container">
+          <h2 class="section-title has-text-centered" id="citation-title">Citation</h2>
+          <p class="section-copy">If you find StructGen useful, please cite our <a href="https://arxiv.org/abs/2607.15619" target="_blank" rel="noopener noreferrer">arXiv paper</a>.</p>
+          <pre class="citation-code"><code>@misc{peng2026structgendisambiguatingmultireferenceimage,
+      title={StructGen: Disambiguating Multi-Reference Image Generation via Structured Context Modeling},
+      author={Jianing Peng and Mengyu Wang and Henghui Ding and Zixiang Li and Ting Liu and Xiaochao Qu and Luoqi Liu and Yao Zhao and Yunchao Wei},
+      year={2026},
+      eprint={2607.15619},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2607.15619},
+}</code></pre>
         </div>
       </section>
     </main>
